@@ -16,6 +16,7 @@ VALIDATE(){
         echo -e "$G $2 ... SUCCESS $N"
     else
         echo -e "$R ERROR :: $2 FAILED $N"
+        exit 1
     fi # END COndition
 }
 if [ $ID -eq 0 ]
@@ -23,6 +24,7 @@ then
     echo "$G You are the Root User $N"
 else
     echo "$R ERROR :: You are not Root User $N"
+    exit 1
 fi # END Condition
 
 # Install MONGO DB
@@ -30,6 +32,7 @@ fi # END Condition
 cp /home/centos/Roboshop-ShellScript/mongo.repo /etc/yum.repo.d/mongo.repo &>>$LOG
 
 dnf install mongodb-org -y  &>>$LOG
+
 VALIDATE $? "Installing MONGODB" 
 
 systemctl enable mongod &>>$LOG
