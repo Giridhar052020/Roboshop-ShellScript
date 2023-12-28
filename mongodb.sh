@@ -37,7 +37,7 @@ do
     if [ $? -eq 0 ]
     then
         echo -e "$R ERROR :: The MongoDB Already Isntalled :: $Y SKKIPING $N"
-
+        exit 1
     else
         echo -e "$G Proceeding the MongoDB Installation $N"
 
