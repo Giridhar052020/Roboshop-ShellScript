@@ -1,7 +1,7 @@
 #!/bin/bash
 # Installing Catalogue role on Roboshop Project
 
-ID=$(Id -u)
+ID=$(id -u)
 TIMESTAMP=$(date +%F-%X)
 LOG="/tmp/$0::$TIMESTAMP.log"
 R="\e[31m"
