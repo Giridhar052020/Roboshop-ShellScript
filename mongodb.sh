@@ -31,3 +31,18 @@ cp /home/centos/Roboshop-ShellScript/mongo.repo /etc/yum.repo.d/mongo.repo &>>$L
 
 dnf install mongodb-org -y  &>>$LOG
 VALIDATE $? "Installing MONGODB" 
+
+systemctl enable mongod &>>$LOG
+
+VALIDATE $? "Enabled MonogoDB Service"
+
+systemctl start mongod &>>$LOG
+
+VALIDATE $? "Started MongoDB Service"
+
+sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf &>>$LOG
+
+systemctl restart mongod &>>$LOG
+
+VALIDATE $? "Restart MongoDB Service"
+
