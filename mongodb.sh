@@ -21,15 +21,15 @@ VALIDATE(){
 }
 if [ $ID -eq 0 ]
 then
-    echo "$G You are the Root User $N"
+    echo -e "$G You are the Root User $N"
 else
-    echo "$R ERROR :: You are not Root User $N"
+    echo -e "$R ERROR :: You are not Root User $N"
     exit 1
 fi # END Condition
 
 # Install MONGO DB
 
-cp /home/centos/Roboshop-ShellScript/mongo.repo /etc/yum.repo.d/mongo.repo &>>$LOG
+cp /home/centos/Roboshop-ShellScript/mongo.repo /etc/yum.repos.d/mongo.repo &>>$LOG
 
 dnf install mongodb-org -y  &>>$LOG
 
