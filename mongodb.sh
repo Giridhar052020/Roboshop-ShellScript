@@ -31,9 +31,22 @@ fi # END Condition
 
 cp /home/centos/Roboshop-ShellScript/mongo.repo /etc/yum.repos.d/mongo.repo &>>$LOG
 
-dnf install mongodb-org -y  &>>$LOG
+for application in "mongodb-org"
+do
+    yum list installed $application &>>$LOG
+    if [ $? -eq 0 ]
+    then
+        echo -e "$R ERROR :: The MongoDB Already Isntalled :: $Y SKKIPING $N"
 
-VALIDATE $? "Installing MONGODB" 
+    else
+        echo -e "$G Proceeding the MongoDB Installation $N"
+
+        dnf install $application -y  &>>$LOG
+
+        VALIDATE $? "Installing MONGODB" 
+
+    fi  # END Condition
+done
 
 systemctl enable mongod &>>$LOG
 
@@ -48,4 +61,3 @@ sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf &>>$LOG
 systemctl restart mongod &>>$LOG
 
 VALIDATE $? "Restart MongoDB Service"
-
