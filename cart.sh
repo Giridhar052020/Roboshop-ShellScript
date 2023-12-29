@@ -62,7 +62,7 @@ VALIDATE $? "Extracting the cart"
 npm install &>>$LOG
 VALIDATE $? "Dependencies Installing"
 
-cp /home/centos/Roboshop-ShellScript/cart.service /etc/systemd/system/catalogue.service &>>$LOG
+cp /home/centos/Roboshop-ShellScript/cart.service /etc/systemd/system/cart.service &>>$LOG
 VALIDATE $? "Copying Cart Service"
 
 systemctl daemon-reload &>>$LOG
