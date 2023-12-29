@@ -56,6 +56,9 @@ VALIDATE $? "Downloading the CART"
 
 cd /app 
 
+unzip -o /tmp/cart.zip  &>> $LOG
+VALIDATE $? "Extracting the cart"
+
 npm install &>>$LOG
 VALIDATE $? "Dependencies Installing"
 
