@@ -40,3 +40,6 @@ VALIDATE $? "Enable Redis Service"
 
 systemctl start redis &>>$LOG
 VALIDATE $? "Redis Service Started"
+
+netstat -lntp
+VALIDATE $? "Port Checking"

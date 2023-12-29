@@ -61,3 +61,6 @@ sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf &>>$LOG
 systemctl restart mongod &>>$LOG
 
 VALIDATE $? "Restart MongoDB Service"
+
+netstat -lntp
+VALIDATE $? "Port Checking"
