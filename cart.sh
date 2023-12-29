@@ -4,6 +4,11 @@
 ID=$(id -u)
 TIMESTAMP=$(date +%F-%X)
 LOG="/tmp/$0-$TIMESTAMP.log"
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+P="\e[35m"
+N="\e[0m"
 
 VALIDATE(){
     if [ $1 -eq 0 ]
